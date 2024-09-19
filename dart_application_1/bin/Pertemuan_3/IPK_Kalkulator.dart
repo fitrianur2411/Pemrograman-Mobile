@@ -66,21 +66,21 @@ void main() {
   print("|   Selamat datang di Kalkulator IPK   |");
   print("=======================================");
 
-  stdout.write("Masukkan jumlah semester (2-14): ");
+  stdout.write("Masukkan jumlah semester (1-8): ");
   int jumlahSemester = int.parse(stdin.readLineSync()!);
 
   // Validasi jumlah semester
-  if (jumlahSemester < 2 || jumlahSemester > 14) {
-    print("Jumlah semester harus antara 2 hingga 14.");
+  if (jumlahSemester < 1 || jumlahSemester > 8) {
+    print("Jumlah semester harus antara 2 hingga 8.");
     return;
   }
 
   // Input data untuk tiap semester
   for (int i = 0; i < jumlahSemester; i++) {
     Semester semester = Semester();
-    print("\n---------------------------------------");
+    print("\n------------------------------------");
     print("|          Semester ${i + 1}              |");
-    print("---------------------------------------");
+    print("------------------------------------");
 
     stdout.write("Masukkan jumlah mata kuliah: ");
     int jumlahMK = int.parse(stdin.readLineSync()!);
@@ -115,15 +115,15 @@ void main() {
   double ipk = totalNilai / totalSKS;
 
   // Menampilkan hasil IPK dengan tampilan yang lebih rapi
-  print("\n=======================================");
-  print("|        Hasil Perhitungan IPK          |");
+  print("\n=========================================");
+  print("|        Transkrip Nilai Akademik        |");
   print("=========================================");
   for (int i = 0; i < jumlahSemester; i++) {
     print(
         "| Semester ${i + 1} : NR = ${semesters[i].hitungNR().toStringAsFixed(2)} | Total SKS = ${semesters[i].totalSKS()}");
   }
   print("---------------------------------------");
-  print("| Total SKS: $totalSKS                          |");
-  print("| IPK Anda: ${ipk.toStringAsFixed(2)}                     |");
+  print("| Total SKS: $totalSKS                        |");
+  print("| IPK Anda: ${ipk.toStringAsFixed(2)}                      |");
   print("=======================================");
 }
